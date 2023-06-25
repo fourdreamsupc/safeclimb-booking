@@ -19,6 +19,5 @@ namespace Shared.Domain.Services.Communication
             Message = string.Empty;
             Resource = resource;
         }
-
     }
 }

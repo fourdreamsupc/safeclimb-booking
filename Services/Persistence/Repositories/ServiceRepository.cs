@@ -18,10 +18,10 @@ namespace Services.Persistence.Repositories
             return await _context.Services.ToListAsync();
         }
 
-        // public async Task<IEnumerable<Service>> ListByAgencyId(int agencyId)
-        // {
-        //     return await _context.Services.Where(b => b.AgencyId == agencyId).Include(b => b.Agency).ToListAsync();
-        // }
+        public async Task<IEnumerable<Service>> ListByAgencyId(int agencyId)
+        {
+            return await _context.Services.Where(b => b.AgencyId == agencyId).ToListAsync();
+        }
 
         public async Task<IEnumerable<Service>> ListByText(string name, int start, int limit)
         {

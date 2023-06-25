@@ -7,6 +7,7 @@ namespace Services.Domain.Services
     {
         Task<IEnumerable<Service>> ListAsync();
         Task<ServiceResponse> GetById(int id);
+        Task<IEnumerable<Service>> ListByAgencyId(int agencyId);
         Task<IEnumerable<Service>> ListByText(string name, int start, int limit);
         Task<IEnumerable<Service>> ListByTextAndFilterMoney(string name, int minMoney, int maxMoney, int start, int limit);
         Task<IEnumerable<Service>> ListByTextAndFilterScore(string name, int score, int start, int limit);

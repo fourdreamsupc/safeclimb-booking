@@ -31,6 +31,11 @@ namespace Services.Services
             return new ServiceResponse(existingService.Result);
         }
 
+        public async Task<IEnumerable<Service>> ListByAgencyId(int agencyId)
+        {
+            return await _serviceRepository.ListByAgencyId(agencyId);
+        }
+
         public async Task<IEnumerable<Service>> ListByText(string name, int start, int limit)
         {
             return await _serviceRepository.ListByText(name, start, limit);
@@ -51,11 +56,6 @@ namespace Services.Services
             return await _serviceRepository.ListByTextAndAllFilter(name, score, min, max, start, limit);
         }
 
-        // public async Task<IEnumerable<Service>> ListByAgencyIdAsync(int agencyId)
-        // {
-        //     return await _serviceRepository.ListByAgencyId(agencyId);
-        // }
-        
         public async Task<IEnumerable<Service>> FilterByCategory(string name, int start, int limit)
         {
             switch (name)

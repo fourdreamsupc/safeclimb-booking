@@ -35,15 +35,6 @@ namespace Shared.Persistence.Contexts
             builder.Entity<Service>().Property(p => p.Description).IsRequired().HasMaxLength(300);
             builder.Entity<Service>().Property(p => p.IsOffer);
 
-            // builder.Entity<Service>()
-            //     .HasMany(p => p.Activities)
-            //     .WithOne(p => p.Service)
-            //     .HasForeignKey(p => p.ServiceId);
-            // builder.Entity<Service>()
-            //     .HasMany(p => p.ServiceReviews)
-            //     .WithOne(p => p.Service)
-            //     .HasForeignKey(p => p.ServiceId);
-
             //Constrains
             builder.Entity<HiredService>().ToTable("HiredServices");
             builder.Entity<HiredService>().HasKey(p => p.Id);

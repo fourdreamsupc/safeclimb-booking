@@ -14,11 +14,6 @@ namespace Services.Domain.Models
         public string Photos { get; set; }
         public string Description { get; set; }
         public bool IsOffer { get; set; }
-        
-        // // Relationships
-        // public IList<Activity> Activities { get; set; }
-        // public IList<ServiceReview> ServiceReviews { get; set; }
-        // public int AgencyId { get; set; }
-        // public Agency Agency { get; set; }
+        public int AgencyId { get; set; }
     }
 }

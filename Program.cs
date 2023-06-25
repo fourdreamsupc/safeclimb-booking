@@ -1,17 +1,17 @@
-using HiredServices.Domain.Repositories;
-using HiredServices.Domain.Services;
-using HiredServices.Persistence.Repositories;
-using HiredServices.Services;
 using Mapping;
 using Microsoft.EntityFrameworkCore;
-using Services.Domain.Repositories;
-using Services.Domain.Services;
-using Services.Persistence.Repositories;
-using Services.Services;
 using Shared.Persistence.Contexts;
 using Microsoft.OpenApi.Models;
 using Shared.Domain.Repositories;
 using Shared.Persistence.Repositories;
+using HiredServices.Domain.Repositories;
+using HiredServices.Domain.Services;
+using Services.Domain.Repositories;
+using Services.Domain.Services;
+using HiredServices.Services;
+using HiredServices.Persistence.Repositories;
+using Services.Persistence.Repositories;
+using Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +47,8 @@ builder.Services.AddSwaggerGen(options =>
 
 // Add Database Connection
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("AzureDbConnection");
 // Database Connection with Standard Level for Information and Errors
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySQL(connectionString));
@@ -56,7 +57,6 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySQL(connecti
 
 builder.Services.AddRouting(options => 
 options.LowercaseUrls = true);
-
 builder.Services.AddScoped<IHiredServiceRepository, HiredServiceRepository>();
 builder.Services.AddScoped<IHiredServiceService, HiredServiceService>();
 

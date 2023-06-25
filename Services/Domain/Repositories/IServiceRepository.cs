@@ -5,7 +5,7 @@ namespace Services.Domain.Repositories
     public interface IServiceRepository
     {
         Task<IEnumerable<Service>> ListAsync();
-        // Task<IEnumerable<Service>> ListByAgencyId(int agencyId);
+        Task<IEnumerable<Service>> ListByAgencyId(int agencyId);
         Task<IEnumerable<Service>> ListByText(string name, int start, int limit);
         Task<IEnumerable<Service>> ListByTextFilterMoney(string name, int min, int max, int start, int limit);
         Task<IEnumerable<Service>> ListByTextFilterScore(string name, int score, int start, int limit);
