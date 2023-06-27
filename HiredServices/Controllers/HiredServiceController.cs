@@ -44,6 +44,30 @@ namespace HiredServices.Controllers
             return resources;
         }
 
+        [HttpGet("customers/{customerId}/[controller]")]
+        [SwaggerOperation(
+            Summary = "Get A Hired Service By Customer Id",
+            Description = "Get A Hired Service Identified By Customer Id",
+            Tags = new[] {"Hired-Services"})]
+        public async Task<IEnumerable<HiredServiceResource>> GetByCustomerIdAsync(int customerId)
+        {
+            var service = await _hiredServiceService.FindByCustomerIdAsync(customerId);
+            var resources = _mapper.Map<IEnumerable<HiredService>, IEnumerable<HiredServiceResource>>(service);
+            return resources;
+        }
+
+        [HttpGet("agencies/{agencyId}/[controller]")]
+        [SwaggerOperation(
+            Summary = "Get A Hired Service By Agency Id",
+            Description = "Get A Hired Service Identified By Agency Id",
+            Tags = new[] {"Hired-Services"})]
+        public async Task<IEnumerable<HiredServiceResource>> GetByAgencyIdAsync(int agencyId)
+        {
+            var service = await _hiredServiceService.FindByAgencyIdAsync(agencyId);
+            var resources = _mapper.Map<IEnumerable<HiredService>, IEnumerable<HiredServiceResource>>(service);
+            return resources;
+        }
+
         [HttpPost]
         [SwaggerOperation(
             Summary = "Register A Hired Service",

@@ -80,8 +80,6 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     context.Database.EnsureCreated();
 }
 
-
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

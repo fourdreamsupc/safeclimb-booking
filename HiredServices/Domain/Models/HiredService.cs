@@ -10,9 +10,8 @@ namespace HiredServices.Domain.Models
         public string ScheduledDate { get; set; }
         public string Status { get; set; }
         
-        // Relationships
-        // public int CustomerId { get; set; }
-        // public Customer Customer { get; set; }
+        public int CustomerId { get; set; }
+        public int AgencyId { get; set; }
         
         public int ServiceId { get; set; }
         public Service Service { get; set; }

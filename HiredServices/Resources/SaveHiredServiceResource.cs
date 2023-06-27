@@ -6,6 +6,9 @@ namespace HiredServices.Resources
     {
         [Required]
         public int CustomerId { get; set; }
+    
+        [Required]
+        public int AgencyId { get; set; }
         
         [Required]
         public int ServiceId { get; set; }

@@ -27,19 +27,17 @@ namespace HiredServices.Persistence.Repositories
             return await _context.HiredServices.FindAsync(id);
         }
         
-        // public async Task<IEnumerable<HiredService>> FindByAgencyIdAsync(int agencyId)
-        // {
-        //     return await _context.HiredServices
-        //         .Where(p => p.Service.AgencyId == agencyId)
-        //         .Include(c => c.Customer)
-        //         .Include( s => s.Service)
-        //         .ToListAsync();
-        // }
+        public async Task<IEnumerable<HiredService>> FindByAgencyIdAsync(int agencyId)
+        {
+            return await _context.HiredServices
+                .Where(p => p.AgencyId == agencyId)
+                .ToListAsync();
+        }
 
-        // public async Task<IEnumerable<HiredService>> FindByCustomerIdAsync(int customerId)
-        // {
-        //     return await _context.HiredServices.Where(p => p.CustomerId == customerId).ToListAsync();
-        // }
+        public async Task<IEnumerable<HiredService>> FindByCustomerIdAsync(int customerId)
+        {
+            return await _context.HiredServices.Where(p => p.CustomerId == customerId).ToListAsync();
+        }
         
         // public async Task<IEnumerable<HiredService>> FindByCustomerIdWithServiceInformationAsync(int customerId)
         // {
