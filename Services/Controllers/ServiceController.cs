@@ -50,6 +50,18 @@ namespace Controllers
             return Ok(result.Resource);
         }
 
+        [HttpGet("agencies/{agencyId}/[controller]")]
+        [SwaggerOperation(
+            Summary = "Get All Services By Agency Id",
+            Description = "Get All Services By Agency Id",
+            Tags = new[] {"Services"})]
+        public async Task<IEnumerable<ServiceResource>> GetByAgencyIdAsync(int agencyId)
+        {
+            var result = await _serviceService.ListByAgencyId(agencyId);
+            var resources = _mapper.Map<IEnumerable<Service>, IEnumerable<ServiceResource>>(result);
+            return resources;
+        }
+
         [HttpGet("[controller]/text/{text}")]
         [SwaggerOperation(
             Summary = "Get All Services By Text",
